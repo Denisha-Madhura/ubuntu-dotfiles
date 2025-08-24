@@ -86,6 +86,17 @@ wget -O zen-browser.deb https://github.com/zen-browser/zen-browser/releases/down
 sudo apt install -y ./zen-browser.deb
 rm zen-browser.deb
 
+# Download the latest Obsidian .deb file
+log "Downloading Obsidian .deb file..."
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/obsidian-1.5.12-amd64.deb -O obsidian.deb
+
+# Install the .deb file
+log "Installing Obsidian from .deb file..."
+sudo apt install ./obsidian.deb
+
+# Remove the downloaded file to keep your directory clean
+rm obsidian.deb
+
 # -----------------------------------------------------------
 # SECTION 3: Install Custom Software (Manual Builds)
 # -----------------------------------------------------------
@@ -142,8 +153,18 @@ fi
 log "Linking your custom .zshrc..."
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 
+# --- SECTION 5: Configure Custom Shortcuts ---
+echo ""
+echo "Configuring custom keyboard shortcuts..."
+
+# Load the custom shortcuts from the dotfiles repository
+dconf load / < ~/dotfiles/custom-shortcuts.dconf
+
+# Make sure you have dconf-cli installed, if not, add this to your install section:
+# sudo apt install dconf-cli
+#
 # -----------------------------------------------------------
-# SECTION 5: Finalizing Setup
+# SECTION 6: Finalizing Setup
 # -----------------------------------------------------------
 log "SECTION 5: Finalizing setup..."
 log "Setup complete! Please log out and back in to use your new setup."

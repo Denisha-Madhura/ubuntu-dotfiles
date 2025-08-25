@@ -34,7 +34,7 @@ Setup
 
 Clone this repository to your home directory:
     
-    git clone https://github.com/your-username/dotfiles.git ~/dotfiles
+    git clone https://github.com/denisha-madhura/dotfiles.git ~/dotfiles
 
 Navigate into the new directory:
 
